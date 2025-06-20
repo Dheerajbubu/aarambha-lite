@@ -1,7 +1,6 @@
 // Get the signals container
 const signalsDiv = document.getElementById("signals");
 
-// Sample multiple signals
 const signals = [
   { instrument: "NIFTY 50", action: "BUY", entry: "19250", sl: "19200", target: "19350" },
   { instrument: "BANKNIFTY", action: "SELL", entry: "43750", sl: "43900", target: "43500" },
@@ -22,6 +21,16 @@ function loadSignals() {
     `;
   });
   signalsDiv.innerHTML = html;
+
+  // ✅ Call alerts after loading
+  alertNewSignals(signals);
 }
 
+function alertNewSignals(signals) {
+  signals.forEach(sig => {
+    alert(`${sig.instrument}: ${sig.action} at ${sig.entry}`);
+  });
+}
+
+// Call the load function when page is ready
 window.onload = loadSignals;
