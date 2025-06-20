@@ -1,8 +1,9 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f0f3f7, #d9e4ff);
-  color: #333;
-  padding: 20px;
+  background: linear-gradient(135deg, #1c1c1c, #2c2c2c);
+  color: #f5f5f5;
+  padding: 10px;
 }
 
 .container {
@@ -12,19 +13,29 @@ body {
 }
 
 h1 {
-  color: #007acc;
+  color: #00d4ff;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 h2 {
-  color: #333;
+  color: #ffffff;
 }
 
+/* Signals Styles */
 .signal {
-  background: #ffffff;
+  background: #333;
   border-radius: 8px;
   padding: 15px;
-  margin: 15px 0;
-  box-shadow: 0px 2px 10px rgba(0,0,0,.1);
+  margin: 15px auto;
+  max-width: 500px;
+  box-shadow: 0px 2px 15px rgba(0,0,0,.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.signal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 20px rgba(0,0,0,.5);
 }
 
 .signal p {
@@ -32,5 +43,13 @@ h2 {
 }
 
 .signal p strong {
-  color: #007acc;
+  color: #00d4ff;
+}
+
+/* Action-based Coloring */
+.signal p strong:contains("BUY") {
+  color: #00ff99;
+}
+.signal p strong:contains("SELL") {
+  color: #ff4d4d;
 }
