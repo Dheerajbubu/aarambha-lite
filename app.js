@@ -10,10 +10,11 @@ const signals = [
 function loadSignals() {
   let html = "<h2>Live Trading Signals</h2>";
   signals.forEach(sig => {
+    const color = sig.action === "BUY" ? "#00ff99" : "#ff4d4d"; // Green for BUY, Red for SELL
     html += `
       <div class="signal">
         <p><strong>Instrument:</strong> ${sig.instrument}</p>
-        <p><strong>Action:</strong> ${sig.action}</p>
+        <p><strong>Action:</strong> <span style="color: ${color}; font-weight: bold">${sig.action}</span></p>
         <p><strong>Entry:</strong> ${sig.entry}</p>
         <p><strong>Stop Loss:</strong> ${sig.sl}</p>
         <p><strong>Target:</strong> ${sig.target}</p>
@@ -22,7 +23,7 @@ function loadSignals() {
   });
   signalsDiv.innerHTML = html;
 
-  // ✅ Call alerts after loading
+  // Call alerts after loading
   alertNewSignals(signals);
 }
 
