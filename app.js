@@ -1,20 +1,27 @@
 // Get the signals container
 const signalsDiv = document.getElementById("signals");
 
-// Simulate a live signal fetch
+// Sample multiple signals
+const signals = [
+  { instrument: "NIFTY 50", action: "BUY", entry: "19250", sl: "19200", target: "19350" },
+  { instrument: "BANKNIFTY", action: "SELL", entry: "43750", sl: "43900", target: "43500" },
+  { instrument: "RELIANCE", action: "BUY", entry: "2785", sl: "2765", target: "2835" }
+];
+
 function loadSignals() {
-  // Clear the loading text
-  signalsDiv.innerHTML = `
-    <h2>Live Trading Signals</h2>
-    <div class="signal">
-      <p><strong>Instrument:</strong> NIFTY 50</p>
-      <p><strong>Action:</strong> BUY</p>
-      <p><strong>Entry:</strong> 19250</p>
-      <p><strong>Stop Loss:</strong> 19200</p>
-      <p><strong>Target:</strong> 19350</p>
-    </div>
-  `;
+  let html = "<h2>Live Trading Signals</h2>";
+  signals.forEach(sig => {
+    html += `
+      <div class="signal">
+        <p><strong>Instrument:</strong> ${sig.instrument}</p>
+        <p><strong>Action:</strong> ${sig.action}</p>
+        <p><strong>Entry:</strong> ${sig.entry}</p>
+        <p><strong>Stop Loss:</strong> ${sig.sl}</p>
+        <p><strong>Target:</strong> ${sig.target}</p>
+      </div>
+    `;
+  });
+  signalsDiv.innerHTML = html;
 }
 
-// Call the function after page load
 window.onload = loadSignals;
